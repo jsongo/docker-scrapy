@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  scrapy:
+    image: python:2.7 
+    container_name: scrapy 
+    #restart: always
+    command: python
+    environment:
+        VERSION: 1.0.0
+    network_mode: host
+    working_dir: /code
+    volumes:
+        - /data/scrapy/code:/code
