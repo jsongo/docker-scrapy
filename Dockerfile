@@ -59,6 +59,4 @@ COPY ./scrapyd.conf /etc/scrapyd/
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/
 EXPOSE 6800
 
-
-ONBUILD ENTRYPOINT ["/run.sh"]
-ONBUILD CMD ["bash", "-c"]
+CMD ["scrapyd"]
