@@ -56,7 +56,12 @@ COPY ./requirements.txt /
 RUN pip install -r /requirements.txt
 
 COPY ./scrapyd.conf /etc/scrapyd/
-VOLUME /etc/scrapyd/ /var/lib/scrapyd/
-EXPOSE 6800
+COPY ./run.sh /
 
-CMD ["scrapyd"]
+VOLUME /etc/scrapyd/ /var/lib/scrapyd/
+
+#EXPOSE 6800
+
+# CMD ["scrapyd"]
+ENTRYPOINT ["/run.sh"]
+CMD ["bash", "-c"]
