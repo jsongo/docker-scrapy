@@ -52,6 +52,7 @@ RUN set -xe \
                                       zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
+COPY ./requirements.txt /
 RUN pip install -r /requirements.txt
 
 COPY ./scrapyd.conf /etc/scrapyd/
