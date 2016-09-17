@@ -55,7 +55,7 @@ RUN set -xe \
 COPY ./requirements.txt /
 RUN pip install -r /requirements.txt
 
-COPY ./scrapyd.conf /etc/scrapyd/
+COPY ./scrapyd.conf /
 COPY ./run.sh /
 
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/
