@@ -1,14 +1,16 @@
 version: '2'
 
 services:
-  scrapy:
-    image: python:2.7 
-    container_name: scrapy 
-    #restart: always
-    command: python
-    environment:
-        VERSION: 1.0.0
-    network_mode: host
-    working_dir: /code
-    volumes:
-        - /data/scrapy/code:/code
+    scrapy:
+        image: daocloud.io/jsongo/scrapy:latest 
+        container_name: scrapy 
+        #restart: always
+        environment:
+            VERSION: 1.0.0
+        network_mode: host
+        working_dir: /code
+        volumes:
+            - /data/scrapy/code:/code
+            - /data/scrapy/logs:/var/lib/scrapyd/logs
+            - /data/scrapy/dbs:/var/lib/scrapyd/dbs
+            - /data/scrapy/code/travel:/var/lib/scrapyd/items

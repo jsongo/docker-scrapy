@@ -52,8 +52,12 @@ RUN set -xe \
                                       zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install -r /requirements.txt
+
 COPY ./scrapyd.conf /etc/scrapyd/
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/
 EXPOSE 6800
 
-CMD ["scrapyd"]
+
+ONBUILD ENTRYPOINT ["/run.sh"]
+ONBUILD CMD ["bash", "-c"]
